@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BloodType
+ * Servlet implementation class Type
  */
-@WebServlet("/BloodType")
-public class URANAI extends HttpServlet {
+@WebServlet("/Type")
+public class Type extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public URANAI() {
+    public Type() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +29,31 @@ public class URANAI extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		res.setContentType("text/bmi; charset=utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/html; charset=utf-8");
 		PrintWriter out=res.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<meta charset=\"utf-8\">");
-		out.println("<form action=\"/Uranai/BloodType\">");
-		out.println("<p>ŒŒ‰tŒ^‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢</p>");
-		out.println("<select name=\"BloodType\">");
-				out.println("<option value=\"\">--‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢--</option>");
-				out.println("<option value=\"A\">AŒ^</option>");
-				out.println("<option value=\"B\">BŒ^</option>");
-				out.println("<option value=\"O\">OŒ^</option>");
-				out.println("<option value=\"AB\">ABŒ^</option>");
-				out.println("</select>");
-		out.println("<p><input type=\"submit\" value=\"è‚¤\"></p>");
+		String BloodType=req.getParameter("BloodType");
+		switch (BloodType) {
+		case "A":
+			out.println("‚¾‚¢‚«‚¿[");
+			break;
+		case "B":
+			out.println("‚¿‚å‚¤‚¾‚¢‚«‚¿[");
+			break;
+		case "O":
+			out.println("‚Ü‚ ‚Ü‚ [");
+			break;
+		case "AB":
+			out.println("‚¾‚¢‚«‚å‚¤[@‚ª[‚ñI");
+			break;
+		default:
+			out.println("‚»‚ñ‚ÈŒŒ‰tŒ^‚È‚¢‚Å‚·‚©‚ç[");
+			break;
+		}
+	
+	
 	}
 
 	/**
